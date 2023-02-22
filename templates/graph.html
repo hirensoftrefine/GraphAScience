@@ -1,0 +1,197 @@
+<!--This file is generation for charts with HighChart.JS-->
+<html>
+<link rel="stylesheet" media="screen" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+</head>
+
+<body class="body">
+
+  <body>
+    <h3 id="graph-title-{{direction}}">{{ title['text'] }}</h3>
+    <div class="graph-info">
+      <label class="switch">
+        <input type="checkbox" name="genderChanged" id="drift-{{direction}}">
+        <span class="slider round"></span>
+      </label>
+
+    </div>
+    <div style="display: inline; position: absolute; top: 7.5%; margin-left: 64px;">
+      <span style="font-size: 19px;" id="drift-text-{{direction}}"></span>
+    </div>
+
+    <div class="max-drift">
+      <span style="display: block; margin-right: 15px;">Maximum Drift {{direction}} = {{maxDriftVal}}</span>
+    </div>
+
+    <div id={{ chartID|safe }} class="chart" style="height: 960px; width: 97%; margin-top: 29px; margin-left: 10px;">
+    </div>
+    <canvas id="canvas" width="400px" height="600px" style="display: none"></canvas>
+    <script>
+      var chart_id = {{ chartID| safe }}
+      var series = {{ series| safe }}
+      var title = {{ title| safe }}
+      var xAxis = {{ xAxis| safe }}
+      var yAxis = {{ yAxis| safe }}
+      var chart = {{ chart| safe }}
+      var cutoff = {{ cutoff| safe}}
+      var max_drift = {{ marDrift | safe}}
+      var direction = '{{ direction }}'
+      var type = '{{type | safe}}'
+
+      var x_max_drift;
+      if (type == "drift") {
+
+        x_max_drift = 0.005;
+
+      }
+      else {
+  
+        x_max_drift = 2000;
+      }
+
+    </script>
+    <script>
+      var chart1;
+      //console.log('High Chart Added');
+      $(document).ready(function () {
+        chart1 = new Highcharts.Chart({
+          chart: chart,
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            margin: 40,
+
+            itemStyle: {
+              width: 80,
+              fontFamily: 'CenturyGothic',
+              fontWeight: '500'
+            },
+            /*floating: true,*/
+            backgroundColor: '#FFFFFF',
+            /*margin: 50,
+            x: 10*/
+          },
+          title: '',
+          xAxis: {
+            title: {
+              text: 'INTERSTORY DRIFT (IN. /IN.)'
+            },
+            softMin: 0,
+            /*tickInterval: 500,*/
+            /*min: 0,*/
+            max: x_max_drift,
+            /*max: max_drift,*/
+            /*tickInterval: 0.0005,*/
+            plotLines: [{
+              color: '#FF0000', // Color value
+              dashStyle: 'ShortDash',
+              // Style of the plot line. Default to solid
+              value: cutoff, // Value of where the line will appear
+              width: 2 // Width of the line    
+            }]
+          },
+          /*yAxis: yAxis,*/
+          yAxis: {
+            /*lineWidth: 3,
+            lineColor: '#FF0000',*/
+            title: {
+              text: 'HEIGHT (FEET)'
+            }
+            /*gridLineWidth: 5,*/
+
+          },
+          series: series,
+          plotOptions: {
+            visible: false,
+            line: {
+              marker: {
+                enabled: true,
+                radius: 3
+              }
+            }
+          },
+          tooltip: {
+            formatter: function () {
+              return this.x;
+            }
+          },
+          navigation: {
+            buttonOptions: {
+              verticalAlign: 'top',
+              y: -15
+            }
+          },
+          exporting: {
+            enabled: true,
+            sourceWidth: 800,
+            sourceHeight: 800,
+            useMultiLevelHeaders: false,
+            useRowspanHeaders: false,
+            filename: title['text'],
+            chartOptions: {
+              title: {
+                text: title['text']
+              },
+              subtitle: 'Drift X',
+              /*chart: {
+                marginLeft: 300,
+                marginRight: 300
+              },*/
+              plotOptions: {
+                series: {
+                  dataLabels: {
+                    enabled: false
+                  }
+                }
+              }
+            },
+            scale: 1,
+            fallbackToExportServer: false,
+            buttons: {
+              contextButton: {
+                menuItems: ['viewFullscreen', 'separator', 'downloadPNG', 'downloadPDF', 'downloadJPEG', 'downloadSVG']
+              },
+              exportButton: {
+                align: 'left',
+                x: 40,
+                y: 20
+              }
+            }
+          },
+
+        });
+
+
+        canvg(document.getElementById('canvas'), chart1.getSVG())
+        var canvas = document.getElementById("canvas");
+        var img = canvas.toDataURL("image/png");
+
+        var elem = document.createElement("img");
+        document.getElementById("graph-sec").appendChild(elem);
+
+        elem.src = img;
+        elem.style.width = '480px';
+        elem.intrinsicsize = "480 x 900";
+
+        elem.name = direction + '_' + 'Image';
+        elem.id = direction + '_' + 'Image';
+        elem.style.visibility = 'hidden';
+        elem.style.position = 'absolute';
+        elem.style.zIndex = '-1';
+
+
+      });
+
+    </script>
+    <script src="../static/js/feature-plugin.js"></script>
+
+  </body>
+
+</body>
+
+</html>

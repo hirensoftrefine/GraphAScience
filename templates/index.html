@@ -1,0 +1,212 @@
+<!--Welcomefile-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title style="color: white">DeSimone TAG</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/css/jCirclize.css?v2" rel="stylesheet">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
+
+    <style type="text/css">
+        .errorStyle {
+
+            background-color: #ffd800;
+            color: #808080;
+            font-size: 13px;
+            padding: 5px 5px;
+            border-radius: 5px;
+            margin-top: 7px;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="header">
+
+        <div class="logo">
+            <img src="../static/images/desimone.jpg"/>
+            <!-- For Adat Science<img src="../static/images/desimone.jpg" width="200" heigh="150" />-->
+        </div>
+        <div class="help-text">
+            Help
+            
+            <span></span>
+            <div class="help-box">
+                <i class="fa fa-caret-up arrow"></i> 
+                <ul style="color: #274365; margin-top: 20px; margin-right: 3px; font-weight: 500; list-style-type: disc;">
+                    <li>ETABS Drift Viewer is compatible with ETABs v18.1.0.</li>
+                    <li>Database Units should be Kip - In.</li>
+                    <li>User can specify the target drift for graphical representation.</li>
+                    <li>Application can plot Drift as well as Inverse Drift values.</li>
+                    <li>Download sample database file <a href="../static/Test Case 2.accdb" download>Click to Download</a></li>
+                    <!--<li>To upload sample file, 
+                        <label for="file1" class="custom-file-upload" style="cursor: pointer; font-weight: bold;">Click here</label> 
+                        <input type="file" id="file1" style="color:transparent; display: none" /></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container1">
+
+        <div class="row1">
+        
+            <div class="wrapper1">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <b class="main-heading">ETABS DRIFT VIEWER</b>
+                    </div> 
+
+                    <div class="panel-body">
+
+                        <form id="fileUploadForm">
+
+                            <div class="form-group projrct-details">
+                                <table class="gfg">
+
+                                    <colgroup>
+                                        <col span="1" style="width: 40%;">
+                                        <col span="1" style="width: 60%;">
+                                     </colgroup>
+                                    <tr>
+                                        <td>
+                                            <label class="heading">Project Name:</label>
+                                        </td>
+
+                                        <td>
+                                            <input type="text" name="prj-name" maxlength="20" placeholder="Enter Project Name" autofocus>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="heading">Engineer:</label>
+                                        </td>
+
+                                        <td>
+                                            <input type="text" name="prj-engineer" maxlength="20" placeholder="Enter Engineer Name">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label class="heading">Date:</label>
+                                        </td>
+
+                                        <td>
+                                            <input type="text" name="prj-date" id="date" disabled>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                               
+                            
+                            </div>
+                          
+                            <div class="form-group">
+                                <label for="Title" class="heading">Upload MDB File</label>
+                                <input type="file" id="file" name="file1" class="form-control input-field"
+                                    placeholder="UPLOAD MDB DATABASE FILE" />
+                            </div>
+
+                            <button type="button" class="btn btn-success" id="save">
+                                <span class="glyphicon  glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                                SUBMIT
+                            </button>
+
+                            <button type="button" class="btn btn-info" id="reset-data">
+                                <span class="glyphicon  glyphicon glyphicon-refresh" aria-hidden="true"></span> RESET
+                            </button>
+
+                            <!-- Data Come From API-->
+
+                            <div class="checkbox-control form-group">
+                                <input type="checkbox" name="selectall" id="selectall">Select All
+                                <input type="checkbox" name="clearall" id="clearall">Clear All
+                            </div>
+                            <div class="form-group" id="checkboxes">
+
+                            </div>
+
+                            <div class="drift-limit form-group projrct-details">
+                                <label>Design Target Drift</label>
+                                <input type="text" name="drift-limit" id="drift-limit" placeholder="400">
+                            </div>
+
+                           
+
+                
+                            <button type="button" class="btn btn-info" id="graph" name="graph">
+                                <span class="glyphicon  glyphicon glyphicon-refresh" aria-hidden="true"></span> PLOT GRAPH
+
+                            </button>
+
+            
+                            <div class="form-group projrct-details etab-version">
+                                <label class="heading"> ETABS Version:</label>
+                                <input type="text" name="etab-version" id="version" disabled>
+                            </div>
+
+                            <div class="api-version">API Version: &nbsp;&nbsp;v2020.01.01</div>
+
+                        </form> 
+
+                    </div> 
+
+                </div> 
+
+            </div> 
+
+            <!-- Graph Section-->
+            <div class="graph-section" id="graph-sec" style="position: relative; ">
+                <!--Data Come from API-->
+                <span class="graph-section-text">ETABS DRIFT VIEWER</span>
+                <div id="example" class="box" style="display: none;position: absolute; left: 15%; top: 31%; color: black; z-index: 9999; font-weight: bold;width: 320px; height: 320px"></div>
+                <div id="example-1" class="box" style="display: none;position: absolute; left: 64%; top: 31%; color: black; z-index: 9999; font-weight: bold;width: 320px; height: 320px">  
+                </div>
+                <div class="x-graph">
+                </div>
+                <div class="y-graph"></div>
+
+                </div>
+            </div>
+
+        </div> <!-- END ROW-->
+
+    </div> <!-- END CONTAINER-->
+
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/highstock/6.0.3/lib/rgbcolor.js"></script> 
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/canvg/1.5/canvg.js"></script> 
+     
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    
+    
+   
+    <!--ETAB DRIFT App JS File-->
+    <script src="../static/js/feature-plugin.js"></script>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+    <script src="../static/js/jquery.jCirclize.js"></script>
+    <!--<script src="../static/js/circle-progress.js"></script>-->
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <h2 style="text-align: center; font-size: 30px; color: 274365; font-weight: bold;">ETAB DRIFT GRAPH</h2>
+    <!--<div style="margin-left: 39px; display: table; float: left; margin-top: 44px;">-->
+    <!--<div>
+            <div style="float: left; margin-top: 20px;color: #274365; font-weight: 500; font-size: 17px;">
+                Project Name: {{ name }} </br>
+                Case Combos : {{ combos[0] }} </br>
+                ETAB VERSION : {{ etab_version }} </br>
+            </div>
+            <div style="display: flex; justify-content: space-evenly;">
+                <img src="{{x_image}}"/>
+            </div>
+        </div>
+        <div>
+            <div style="float: left; margin-top: 20px;color: #274365; font-weight: 500; font-size: 17px;">
+                Project Name: {{ name }} </br>
+                Case Combos : {{ combos[0] }} </br>
+                ETAB VERSION : {{ etab_version }} </br>
+            </div>
+            <div style="display: flex; justify-content: space-evenly;">
+                <img src="{{y_image}}"/>
+            </div>
+        </div>-->
+    <div>
+        <div style="width: 600px;margin: 10px auto 80px auto">
+            <div class="logo" style="float: right">
+                <img src="F:\Projects\ADATFlask\AdatScience\static\images\desimone.jpg" height="50px" />
+            </div>
+            <div style="clear:both">
+
+            </div>
+            <div class="graph"style="margin-top: 8px; border: solid 2px #274365; border-radius: 5px; margin-bottom: 10px;">
+                <img src="{{x_image}}" />
+            </div>
+            <div class="graph-info" style="color: grey; margin-bottom: 20px;">
+                <div>
+                    <div>Project Name: {{ name }} </div>
+                    <div>Engineer Name: {{ engineer_name }} </div>
+                    <div>ETAB Version: {{ etab_version }} </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="width: 600px; margin: 80px auto">
+            <!--<div class="logo" style="float: right">
+                <img src="F:\Projects\ADATFlask\AdatScience\static\images\desimone.jpg" height="50px" />
+            </div>-->
+            <div style="clear:both">
+
+            </div>
+            <div class="graph" style="margin-top: 8px; border: solid 2px #274365; border-radius: 5px; margin-bottom: 10px;">
+                <img src="{{y_image}}" />
+            </div>
+            <div class="graph-info" style="color: grey">
+                <div>
+                    <div>Project Name: {{ name }} </div>
+                    <div>Engineer Name: {{ engineer_name }} </div>
+                    <div>ETAB Version: {{ etab_version }} </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <style type="text/css">
+            .row-1
+            {
+                border: 1px solid;
+                width: 99px;
+                height: 42px;
+                display: inline-block;
+                margin-right: -5px;
+                font-size: 14px;
+                padding-top: 23px;
+                margin-top: 3px;
+                text-align: center;
+                font-weight: bold;
+            }
+            .row-1:nth-child(4)
+            {
+                width: 302px !important;
+                position: relative;
+                background-color: #274365;
+                color: #274365;
+            }
+
+            .row-1:nth-child(4) img
+            {
+                position: absolute;
+                left: 15%;
+                top: 20%;
+            }
+
+            .row-2
+            {
+                border: 1px solid;
+                width: 100px;
+                height: 31px;
+                display: inline-block;
+                margin-right: -5px;
+                font-size: 14px;
+                padding-top: 10px;
+                margin-top: 3px;
+                text-align: center;
+                font-weight: bold;
+                
+            }
+
+            .row-2:nth-child(1)
+            {
+            
+                width: 299px !important;
+
+            }
+
+            @media print {
+                .pagebreak { page-break-before: always; } /* page-break-after works, as well */
+            }
+        </style>
+    </head>
+    <body>
+        
+        <!--<h2 style="text-align: center; font-size: 30px; color: 274365; font-weight: bold;">ETAB DRIFT GRAPH</h2>-->
+
+        <div>
+            <div style="width: 600px;margin: 10px auto 80px auto;">
+                <div style="margin-bottom: -4px;">
+                    <span class="row-1">DR: Y</span>
+                    <span class="row-1">Model</span>
+                    <span class="row-1">Load Case</span>
+                    <span class="row-1">s
+                        <img src="F:\Projects\ADATFlask\AdatScience\static\images\desimone.jpg" />
+                    </span>
+                </div>
+                <div style="border-bottom: 1px solid black;">
+                    <span class="row-2">{{x_graph_title}}</span>
+                    <span class="row-2">Model</span>
+                    <span class="row-2">Load Case</span>
+                    <span class="row-2">Desimone</span>
+                </div>
+                <!--<div class="logo" style="float: right">
+                    <img src="F:\Projects\ADATFlask\AdatScience\static\images\desimone.jpg" height="50px" />
+                </div>-->
+                <div style="clear:both">
+    
+                </div>
+                <div class="graph" style="width: 602px; margin-top: -1px; border: solid 1px #274365; margin-bottom: 10px;">
+                    <img src="{{x_image}}"/>
+                </div>
+                <!--<div class="graph-info" style="color: grey">
+                    <div>
+                        <div>Project Name: {{ name }} </div>
+                        <div>Engineer Name: {{ engineer_name }} </div>
+                        <div>ETAB Version: {{ etab_version }} </div>
+                    </div>
+                </div>-->
+    
+            </div>
+
+            <!--<div class="pagebreak"></div>-->
+
+            <div style="width: 600px;margin: 300px auto 80px auto">
+                <div style="margin-bottom: -4px;">
+                    <span class="row-1">DR: Y</span>
+                    <span class="row-1">Model</span>
+                    <span class="row-1">Load Case</span>
+                    <span class="row-1">s
+                        <img src="F:\Projects\ADATFlask\AdatScience\static\images\desimone.jpg" />
+                    </span>
+                </div>
+                <div style="border-bottom: 1px solid black;">
+                    <span class="row-2">{{y_graph_title}}</span>
+                    <span class="row-2">Model</span>
+                    <span class="row-2">Load Case</span>
+                    <span class="row-2">Desimone</span>
+                </div>
+                <!--<div class="logo" style="float: right">
+                    <img src="F:\Projects\ADATFlask\AdatScience\static\images\desimone.jpg" height="50px" />
+                </div>-->
+                <div style="clear:both">
+    
+                </div>
+                <div class="graph" style="width: 602px; margin-top: -1px; border: solid 1px #274365; margin-bottom: 10px;">
+                    <img src="{{y_image}}"/>
+                </div>
+                <!--<div class="graph-info" style="color: grey">
+                    <div>
+                        <div>Project Name: {{ name }} </div>
+                        <div>Engineer Name: {{ engineer_name }} </div>
+                        <div>ETAB Version: {{ etab_version }} </div>
+                    </div>
+                </div>-->
+    
+            </div>
+    
+        </div>
+    
+     
+
+                
+        
+    </body>
+</html>

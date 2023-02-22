@@ -1,0 +1,660 @@
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+@font-face {
+	font-family: CenturyGothic;
+	src: url(century_gothic.ttf);
+  }
+
+
+html,body {
+	width: 100%;
+	height: auto;
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden;
+	font-family: CenturyGothic;
+}
+
+
+
+
+body::before
+{
+	content: '';
+
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	overflow-x: hidden;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+
+	
+
+}
+
+
+
+.header
+{
+	height: 80px; 
+	width: 100%; 
+	background-color: #274365; 
+	z-index: 1; 
+	padding: 10px;
+	display: flex; 
+	justify-content: space-between;
+
+}
+
+.header .logo
+{
+
+	/* For Desimone Logo */
+	display: inline-block;
+    margin-top: 15px;
+    margin-left: 10px;
+
+
+	/* For Adat Science Logo
+	display: inline-block;
+	margin-top: -43px;
+    margin-left: 0px;*/
+}
+
+/* For Adat Science
+
+.header .logo img
+{
+	width: 200px;
+    height: 150px;
+}*/
+
+.header .help-text
+{
+	color: white; 
+	margin-right: 46px; 
+	margin-top: 14px; 
+	font-family: inherit; 
+	cursor: pointer;
+}
+
+.header .help-box
+{
+	position: absolute; 
+	right: 60px; 
+	top: 58px; 
+	/*width: 426px;
+	height: 190px;*/
+	
+	width: 460px;
+	height: 180px;
+	background-color: white; 
+	box-shadow: -1px 8px 8px 1px lightgrey; 
+	border: solid 1px lightgray;
+	visibility: hidden;
+	font-size: 0.85rem;
+	z-index: 1;
+}
+
+.header .help-box .arrow
+{
+	color: white !important;
+    position: absolute;
+	/*right: 0.01rem;*/
+	right: 10px;
+    top: -25px;
+    font-size: 40px;
+    /* right: 0px; */
+}
+
+.help-text:hover .help-box
+{
+	visibility: visible;
+}
+
+.header .help-box ul
+{
+	margin-top: 20px;
+}
+
+.header .help-box ul li
+{
+	margin-bottom: 6px;
+
+}
+
+.header .help-box ul li #file1
+{
+	width: 45%;
+    margin-left: 5px;
+}
+
+
+.container1
+{
+
+	margin-top: 0%;
+	/*height: 570px;*/
+	margin-left: 0 !important;
+	width: 100% !important;
+
+	
+
+}
+
+.row1
+{
+	width: inherit;
+	display: flex;
+}
+
+.wrapper1
+{
+	background-color: inherit;
+	position: relative;
+	/*width: 400px;*/
+	min-height: 1130px;
+	width: 362px;
+	box-shadow: 3px 2px 2px 2px lightgrey;
+    box-shadow: 8px 2px 7px 1px lightgrey;
+
+}
+
+.graph-section
+{
+	width: 75%;
+    margin-top: 0;
+	height: auto;
+	display: flex;
+	border-radius: 6px;
+	margin-top: 20px;
+	margin-left: 59px;
+	margin-top: 26px;
+
+}
+
+.graph-section .graph-section-text
+{
+	color: #274365;
+    opacity: 0.2;
+    height: 400px;
+    font-size: 5.5rem;
+	position: relative;
+	top: 36%;
+	left: 2%;
+	margin: 0 auto;
+	text-shadow: 6px 2px lightgrey;
+	
+	
+}
+
+.graph-section .x-graph, .graph-section .y-graph
+{
+	display: none;
+	cursor: pointer;
+	width: 50%;
+	height: 100%;
+	margin-right: 2px;
+    border: solid 2px #274365;
+	border-radius: 16px;
+
+
+}
+
+.panel-heading
+{
+
+	text-align: center;
+	width: 100%;
+	margin: 20px auto 0px auto;
+	line-height: 62px;
+	font-family: CenturyGothic;
+
+}
+
+.main-heading
+{
+	position: relative;
+	display: block;
+	color: #274365;
+	font-weight: bold;
+	font-size: 28px;
+}
+
+
+.heading
+{
+
+	color: #274365;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.form-group
+{
+	width: 95%;
+	margin: 0 auto 1rem 27px;
+	font-family: CenturyGothic;
+}
+
+.form-group input[type="file"]
+{
+	width: 89% !important;	
+	cursor: pointer;
+}
+
+input[type=text]:focus{
+	outline: 3px solid lightblue;     /* oranges! yey */
+}
+
+.projrct-details input[type="text"]
+{
+	padding: 0.2rem .75rem;
+    font-size: 1rem;
+    width: 87%;
+    line-height: 0.25;
+    color: #464a4c;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    border-radius: .25rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    margin-top: -7px;
+}
+
+.etab-version
+{
+	display: none;
+}
+.etab-version input
+{
+	
+	width: 30% !important;
+}
+
+.gfg { 
+	border-collapse:separate; 
+	border-spacing:0 7px; 
+} 
+
+.projrct-details label
+{
+	margin-top: 11px;
+	margin-bottom: 0px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: lightgrey;
+	opacity: 1; /* Firefox */
+  }
+#checkboxes
+{
+	display: none;
+	height: 350px;
+    overflow: auto;
+	color: #274365;
+	width: 92%;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+.checkbox-control
+{
+	display: none;
+	margin-bottom: 7px;
+}
+
+.checkbox-control #selectall
+{
+	margin-right: 10px;
+}
+
+.checkbox-control #clearall
+{
+	margin-right: 10px;
+    margin-left: 72px;
+}
+
+.drift-limit 
+{
+	display: none;
+}
+.drift-limit input
+{
+	width: 29% !important;
+	margin-left: 6px;
+}
+
+
+.btn:focus {
+  /*background-color: red ! important;*/
+}
+
+
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none !important;
+
+
+}
+
+.btn:hover
+{
+        background-color: white !important;
+        color: #4d4d4d !important;
+}
+
+
+#save
+{
+
+	width: 29%;
+	margin-bottom: 22px;
+	color: #fff;
+	background-color:#274365;
+	border-color: #266e8499 !important;
+	border-radius: 40px;
+	margin-top: 22px;
+	margin-left: 17%;
+	font-size: 19px;
+	font-family: CenturyGothic;
+	cursor: pointer;
+
+
+}
+
+#save:hover
+{
+	background-color: #238fb0;
+	/*box-shadow: 0 0 0 2px rgba(92,184,92,.5);*/
+	border-color: #266e8499 !important;
+}
+
+#graph, #save-pdf
+{
+	display: none;
+	background-color: #274365;
+	margin-bottom: 22px;
+	border-color: #266e8499 !important;
+	border-radius: 40px;
+	margin-left: 25%;
+	font-size: 19px;
+	font-family: CenturyGothic;
+	margin-top: 15px;
+	cursor: pointer;
+}
+
+#save-pdf
+{
+	margin-left: 10px;
+	padding-left: 22px;
+    padding-right: 22px;
+}
+
+#reset-data
+{
+	background-color: #274365;
+	width: 29%;
+	margin-bottom: 22px;
+	border-color: #266e8499 !important;
+	border-radius: 40px;
+	font-size: 19px;
+	font-family: CenturyGothic;
+	margin-left: 10px;
+	margin-top: 22px;
+	cursor: pointer;
+}
+
+#reset:hover
+{
+	background-color: #238fb0;
+	border-color: #266e8499;
+
+}
+
+
+/* Graph.html CSS */
+
+h3
+{
+	text-align: center; 
+	margin-top: 33px; 
+	color: #274365;
+}
+
+.graph-info
+{
+	/*float:right; */
+	display: inline-block;
+	
+	margin-top: 14px; 
+	color: #274365; 
+	font-size: 12px;
+	/*display: flex;*/
+	justify-content: space-evenly;
+	position: relative;
+	/*left: -11%;*/
+	left: 7%;
+	
+	/* display: inline-block and comment positiom reletive*/
+}
+
+/* Drift Toogle Button */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    /*width: 120px;
+	height: 34px;*/
+	width: 52px;
+	height: 26px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider.round {
+    border-radius: 34px;
+    padding-left: 40px;
+    padding-top: 7px;
+}
+
+.slider, .slider:before {
+    position: absolute;
+    transition: .4s;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #274365;
+	color: #FFF;
+	-webkit-transition: .4s;
+	transition: .4s;
+	font-size: 14px;
+}
+
+
+.slider:before {
+   position: absolute;
+	content: "";
+	/*height: 26px;
+	width: 26px;*/
+	height: 20px;
+	width: 20px;
+	left: 4px;
+	bottom: 4px;
+	background-color: #fff;
+	-webkit-transition: .4s;
+	transition: .4s;
+	background-repeat: no-repeat;
+	background-position: 40% 40%;
+	background-size: 85%;
+	border-radius: 50%;
+	/*background-image: url(http://icons.iconarchive.com/icons/icons8/ios7/512/Users-User-Female-icon.png);*/
+}
+
+.male:before {
+   /*background-image: url(http://icons.iconarchive.com/icons/icons8/ios7/512/Users-User-Male-icon.png);*/
+}
+
+input:checked + .slider {
+}
+
+input:checked + .slider:before {
+   /*-webkit-transform: translateX(85px);
+   -ms-transform: translateX(85px);
+	transform: translateX(85px);*/
+
+	-webkit-transform: translateX(22px);
+   -ms-transform: translateX(22px);
+	transform: translateX(22px);
+
+
+}
+
+.graph-info button {
+	background-color: #274365; 
+	color: #fff;
+	border: 1px transparent;
+    font-size: 19px;
+	padding: 5px 15px;
+	border-radius: 3px;
+	line-height: 1.7;
+	cursor: pointer;
+}
+
+.graph-info .active {
+	background-color: white !important;
+	color: #274365 !important;
+	border: 1px solid #274365;
+}
+
+.graph-info #drift-btn-X, .graph-info #drift-btn-Y
+{
+	border-radius: 30px !important;
+
+	margin-right: 19px;
+   
+    z-index: 9999;
+    margin-left: 84px;
+    position: relative;
+    left: 14%;
+    /* padding-left: 29px; */
+	width: 103px;
+	padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.graph-info #drift-btn-X:focus, .graph-info #drift-btn-Y:focus
+{
+	outline: none;
+}
+
+.graph-info #inverse-drift-btn-X, .graph-info #inverse-drift-btn-Y
+{
+	border-radius: 20px;
+    margin-left: -59px;
+    z-index: -7;
+	padding-left: 89px !important; /* padding-left: 30px*/
+	padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.graph-info #inverse-drift-btn-X:focus, .graph-info #inverse-drift-btn-Y:focus
+{
+	outline: none;
+}
+
+/*.graph-info button {
+	border: none !important;
+	font-size: 20px;
+	background-color: white !important;
+	color: #274365 !important;
+	cursor: pointer;
+}*/
+
+.graph-info #drift-btn-X, .graph-info #drift-btn-Y
+{
+	/*margin-right: 77px;*/
+}
+
+
+.graph-info #drift-btn-X:hover, .graph-info #drift-btn-Y:hover,  .graph-info #inverse-drift-btn-Y:hover, .graph-info #inverse-drift-btn-X:hover {
+
+	color: #274365;
+	background-color: white;
+	border: solid 1px #274365;
+	padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.graph-info #drift-btn-X:hover, .graph-info #drift-btn-Y:hover
+{
+	padding-top: 4px;
+    padding-bottom: 4px;
+
+}
+
+.max-drift
+{
+	/*float: right;
+    margin-top: 18px;
+	margin-right: 69px;*/
+	
+	float: right;
+    margin-top: 18px;
+    margin-right: 17px;
+}
+
+.api-version
+{
+	position: absolute;
+    bottom: 20px;
+    left: 0;
+    display: inline-block;
+    margin-left: 32px;
+    font-size: 16px;
+    color: grey;
+}
+
+/* Highchart Customization*/
+
+.highcharts-contextbutton
+{
+	transform: translate(173,10) !important;
+	-webkit-transform: translate(173,10) !important;
+}
+
+.highcharts-yaxis .highcharts-axis-line {
+	stroke-width: 2px;
+}
+
+.highcharts-plot-line 
+{
+	stroke: red !important;
+}
+
+/*.highcharts-button, .highcharts-button
+//{
+	fill: #FFF;
+	display: none;
+}*/
+
+.highcharts-button-box
+{
+	display: none;
+}
+
